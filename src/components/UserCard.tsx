@@ -1,13 +1,13 @@
-import React from 'react'
-import styles from '@/styles/UserCard.module.scss'
+import React from 'react';
+import styles from '@/styles/UserCard.module.scss';
 
 type UserCardProps = {
-  name: string
-  email: string
-  phone: string
-  website: string
-  address: string
-}
+  name: string;
+  email: string;
+  phone: string;
+  website: string;
+  address: string;
+};
 
 const UserCard: React.FC<UserCardProps> = ({
   name,
@@ -29,7 +29,7 @@ const UserCard: React.FC<UserCardProps> = ({
       </p>
       <p>Address: {address}</p>
     </div>
-  )
-}
+  );
+};
 
-export default UserCard
+export default UserCard;

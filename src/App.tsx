@@ -1,12 +1,12 @@
-import React from 'react'
-import UserCard from '@/components/UserCard'
-import { useFetchUsers } from './hooks/useFetchUsers'
+import React from 'react';
+import UserCard from '@/components/UserCard';
+import { useFetchUsers } from './hooks/useFetchUsers';
 
 const App: React.FC = () => {
-  const { data: users, loading, error } = useFetchUsers()
+  const { data: users, loading, error } = useFetchUsers();
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error: {error}</p>
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
@@ -21,7 +21,7 @@ const App: React.FC = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -23,7 +23,7 @@ const UserCard: React.FC<UserCardProps> = ({
       <p>Phone: {phone}</p>
       <p>
         Website:{' '}
-        <a href={`http://${website}`} target="_blank">
+        <a href={`http://${website}`} target="_blank" rel="noopener noreferrer">
           {website}
         </a>
       </p>

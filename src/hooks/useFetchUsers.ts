@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { fetchUsers } from '../api/userApi'
+import { fetchUsers } from '@/api/userApi'
+import { usersSchema, Users } from '@/types/userSchema'
 
 export const useFetchUsers = () => {
-  const [data, setData] = useState<any[]>([])
+  const [data, setData] = useState<Users>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -11,7 +12,8 @@ export const useFetchUsers = () => {
       try {
         setLoading(true)
         const users = await fetchUsers()
-        setData(users)
+        const parsedUsers = usersSchema.parse(users)
+        setData(parsedUsers)
         setLoading(false)
       } catch (err) {
         setError(`Error fetching user data: ${err}`)

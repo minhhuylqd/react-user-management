@@ -1,0 +1,13 @@
+$main-color: #3498db;
+
+
+.header {
+background-color: $main-color;
+padding: 20px;
+text-align: center;
+
+    h1 {
+        color: red;
+        font-size: 24px;
+    }
+}

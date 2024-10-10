@@ -4,9 +4,21 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type FilterBarProps = {
   onFilterChange: (filter: string) => void;
+  onSortFieldChange: (field: string) => void;
+  onSortOrderChange: () => void;
+  resetSortOrder: () => void;
+  sortField: string;
+  sortOrder: 'asc' | 'desc';
 };
 
-const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange }) => {
+const FilterBar: React.FC<FilterBarProps> = ({
+  onFilterChange,
+  onSortFieldChange,
+  onSortOrderChange,
+  resetSortOrder,
+  sortField,
+  sortOrder,
+}) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +29,8 @@ const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange }) => {
   const clearInput = () => {
     setInputValue('');
     onFilterChange('');
+    onSortFieldChange('');
+    resetSortOrder();
   };
 
   return (
@@ -28,7 +42,24 @@ const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange }) => {
         onChange={handleInputChange}
         className={styles.filterBar}
       />
-      {inputValue && (
+      <select
+        value={sortField}
+        onChange={(e) => onSortFieldChange(e.target.value)}
+        className={styles.sortFieldSelect}
+      >
+        <option value="">Default order</option>
+        <option value="name">Sort by Name</option>
+        <option value="email">Sort by Email</option>
+      </select>
+      {sortField && (
+        <button
+          onClick={onSortOrderChange}
+          className={styles.toggleSortOrderButton}
+        >
+          {sortOrder === 'asc' ? 'Asc' : 'Desc'}
+        </button>
+      )}
+      {(inputValue || sortField) && (
         <button className={styles.clearButton} onClick={clearInput}>
           <XMarkIcon className={styles.xmarkIcon} />
         </button>

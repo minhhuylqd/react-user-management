@@ -4,6 +4,7 @@ import { useFetchUsers } from '@/hooks/useFetchUsers';
 import { type User } from '@/types/userSchema';
 import FilterBar from '@/components/FilterBar';
 import Navbar from '@/components/Navbar';
+import styles from '@/App.module.scss';
 
 const App: React.FC = () => {
   const { data: users, loading, error } = useFetchUsers();
@@ -78,16 +79,18 @@ const App: React.FC = () => {
         sortField={sortField}
         sortOrder={sortOrder}
       />
-      {filteredUsers.map((user) => (
-        <UserCard
-          key={user.id}
-          name={user.name}
-          email={user.email}
-          phone={user.phone}
-          website={user.website}
-          address={`${user.address.street}, ${user.address.city}`}
-        />
-      ))}
+      <div className={styles.usersGrid}>
+        {filteredUsers.map((user) => (
+          <UserCard
+            key={user.id}
+            name={user.name}
+            email={user.email}
+            phone={user.phone}
+            website={user.website}
+            address={`${user.address.street}, ${user.address.city}`}
+          />
+        ))}
+      </div>
     </div>
   );
 };

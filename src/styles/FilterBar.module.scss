@@ -2,12 +2,13 @@
   display: flex;
   align-items: center;
   position: relative;
+  gap: 4px;
   width: 100%;
+  margin: 10px 0px;
 }
 
 .filterBar {
   padding: 10px;
-  margin: 10px 0;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -29,11 +30,10 @@
 }
 
 .sortFieldSelect {
-  padding: 5px;
-  margin-right: 10px;
+  padding: 10px;
 }
 
 .toggleSortOrderButton {
-  padding: 5px 10px;
+  padding: 10px;
   cursor: pointer;
 }

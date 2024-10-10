@@ -47,7 +47,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
         onChange={(e) => onSortFieldChange(e.target.value)}
         className={styles.sortFieldSelect}
       >
-        <option value="" selected>Default order</option>
+        <option value="" selected>
+          Default order
+        </option>
         <option value="name">Sort by Name</option>
         <option value="email">Sort by Email</option>
       </select>

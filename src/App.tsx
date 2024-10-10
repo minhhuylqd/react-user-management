@@ -3,6 +3,7 @@ import UserCard from '@/components/UserCard';
 import { useFetchUsers } from '@/hooks/useFetchUsers';
 import { type User } from '@/types/userSchema';
 import FilterBar from '@/components/FilterBar';
+import Navbar from '@/components/Navbar';
 
 const App: React.FC = () => {
   const { data: users, loading, error } = useFetchUsers();
@@ -68,6 +69,7 @@ const App: React.FC = () => {
 
   return (
     <div>
+      <Navbar />
       <FilterBar
         onFilterChange={handleFilterChange}
         onSortFieldChange={handleSortFieldChange}

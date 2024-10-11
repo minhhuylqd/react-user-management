@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '@/styles/FilterBar.module.scss';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
 
 type FilterBarProps = {
   onFilterChange: (filter: string) => void;
@@ -58,12 +58,14 @@ const FilterBar: React.FC<FilterBarProps> = ({
           onClick={onSortOrderChange}
           className={styles.toggleSortOrderButton}
         >
-          {sortOrder === 'asc' ? 'Asc' : 'Desc'}
+          {sortOrder === 'asc' 
+            ? <span className={styles.spanSortOrder}><ArrowUpIcon className={styles.arrowIcon} /> Asc </span>
+            : <span className={styles.spanSortOrder}><ArrowDownIcon className={styles.arrowIcon} /> Desc </span>}
         </button>
       )}
       {(inputValue || sortField) && (
         <button className={styles.clearButton} onClick={clearInput}>
-          <XMarkIcon className={styles.xmarkIcon} />
+          <XMarkIcon className={styles.xmarkIcon} /> Clear filter
         </button>
       )}
     </div>

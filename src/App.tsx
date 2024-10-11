@@ -71,25 +71,27 @@ const App: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <FilterBar
-        onFilterChange={handleFilterChange}
-        onSortFieldChange={handleSortFieldChange}
-        onSortOrderChange={handleSortOrderChange}
-        resetSortOrder={resetSortOrder}
-        sortField={sortField}
-        sortOrder={sortOrder}
-      />
-      <div className={styles.usersGrid}>
-        {filteredUsers.map((user) => (
-          <UserCard
-            key={user.id}
-            name={user.name}
-            email={user.email}
-            phone={user.phone}
-            website={user.website}
-            address={`${user.address.street}, ${user.address.city}`}
-          />
-        ))}
+      <div className={styles.mainContent}>
+        <FilterBar
+          onFilterChange={handleFilterChange}
+          onSortFieldChange={handleSortFieldChange}
+          onSortOrderChange={handleSortOrderChange}
+          resetSortOrder={resetSortOrder}
+          sortField={sortField}
+          sortOrder={sortOrder}
+        />
+        <div className={styles.usersGrid}>
+          {filteredUsers.map((user) => (
+            <UserCard
+              key={user.id}
+              name={user.name}
+              email={user.email}
+              phone={user.phone}
+              website={user.website}
+              address={`${user.address.street}, ${user.address.city}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

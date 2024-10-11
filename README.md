@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# User Data Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Setup .env](#setup-env)
+  - [Install dependencies](#install-dependencies)
+  - [Run the application](#run-the-application)
+- [Technical description](#technical-description)
+  - [External libraries](#external-libraries)
 
-Currently, two official plugins are available:
+## Introduction
+The User Data Management application is designed to display user data in a card format with capabilities for both filtering and sorting. This provides an intuitive and accessible interface to manage and view user details effectively.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+### Prerequisites
+Before installing the application, ensure you have the following installed:
+- Node.js (recommended version 14.x or above)
+- npm (typically comes with Node.js)
+- Git (for cloning the repository)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Setup .env
+To run the application locally, you'll need to set up environment variables:
+1. Clone the repository:
+  ```bash
+  git clone https://github.com/your-repository/user-data-management.git
+  ```
 
-- Configure the top-level `parserOptions` property like this:
+2.	Navigate into the project directory:
+  ```bash
+  cd user-data-management
+  ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+3. Copy the .env.example file to a new file named .env and update the API URL according to the .env.example template.
+
+### Install dependencies
+
+Install the project dependencies by running the following command:
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Run the application
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+To run the application locally, use the following command:
+```bash
+npm run dev
 ```
+
+## Technical description
+
+### External libraries
+
+
+- **Heroicons**: Heroicons provides a comprehensive collection of accessible, high-quality SVG icons designed for web projects. Maintained by the Tailwind CSS team, Heroicons is a great choice for adding icons to your project without worrying about deprecated technologies or accessibility issues.
+
+- **Axios**: Axios is a promise-based HTTP client for the browser and Node.js. It makes it easy to send asynchronous HTTP requests to REST endpoints and perform CRUD operations on data.
+
+- **Zod**: Zod is a TypeScript-first schema declaration and validation library. It allows defining schemas for data and validate it against those schemas. Zod is a great choice for ensuring data integrity and type safety in the application.
+
+- **Prettier**: Prettier is an opinionated code formatter that ensures consistent code style across the project. It automatically formats code according to predefined rules, making it easier to maintain and collaborate on the codebase.

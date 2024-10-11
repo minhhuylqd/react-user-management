@@ -3,7 +3,7 @@ import UserCard from '@/components/UserCard';
 import { useFetchUsers } from '@/hooks/useFetchUsers';
 import { type User } from '@/types/userSchema';
 import FilterBar from '@/components/FilterBar';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/NavBar';
 import styles from '@/App.module.scss';
 
 const App: React.FC = () => {
